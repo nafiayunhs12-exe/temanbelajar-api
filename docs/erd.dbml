@@ -1,0 +1,29 @@
+// Tempel ke https://dbdiagram.io/d untuk membuat gambar ERD
+Table pengguna {
+  id_pengguna serial [pk]
+  nama varchar(100) [not null]
+  email varchar(100) [unique, not null]
+}
+Table kategori {
+  id_kategori serial [pk]
+  nama_kategori varchar(50) [not null]
+}
+Table materi {
+  id_materi serial [pk]
+  judul varchar(150) [not null]
+  isi text [not null]
+  id_kategori int [not null, ref: > kategori.id_kategori]
+  id_pengguna int [not null, ref: > pengguna.id_pengguna]
+}
+Table bookmark {
+  id_bookmark serial [pk]
+  id_pengguna int [not null, ref: > pengguna.id_pengguna]
+  id_materi int [not null, ref: > materi.id_materi]
+  indexes { (id_pengguna, id_materi) [unique] }
+}
+Table riwayat_materi {
+  id_riwayat serial [pk]
+  id_pengguna int [not null, ref: > pengguna.id_pengguna]
+  id_materi int [not null, ref: > materi.id_materi]
+  tanggal_dibaca timestamp [default: `now()`]
+}

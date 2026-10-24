@@ -1,0 +1,1895 @@
+{
+  "info": {
+    "name": "TemanBelajar API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Ganti variabel base_url dengan URL Vercel kamu."
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://temanbelajar-api.vercel.app"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "Pengguna",
+      "item": [
+        {
+          "name": "Daftar Pengguna",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/pengguna",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pengguna"
+              ]
+            },
+            "description": "Mengambil semua data pengguna"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/pengguna",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pengguna"
+                  ]
+                },
+                "description": "Mengambil semua data pengguna"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Daftar pengguna berhasil diambil\",\n  \"total\": 1,\n  \"data\": [\n    {\n      \"id_pengguna\": 1,\n      \"nama\": \"Nafia Yunu\",\n      \"email\": \"nafia@example.com\"\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Detail Pengguna",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/pengguna/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pengguna",
+                "1"
+              ]
+            },
+            "description": "Mengambil satu pengguna berdasarkan id"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/pengguna/1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pengguna",
+                    "1"
+                  ]
+                },
+                "description": "Mengambil satu pengguna berdasarkan id"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Pengguna berhasil diambil\",\n  \"data\": {\n    \"id_pengguna\": 1,\n    \"nama\": \"Nafia Yunu\",\n    \"email\": \"nafia@example.com\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Tambah Pengguna",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pengguna",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pengguna"
+              ]
+            },
+            "description": "Menambahkan pengguna baru",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nama\": \"Dina Putri\",\n  \"email\": \"dina@example.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 201', () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 201",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/pengguna",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pengguna"
+                  ]
+                },
+                "description": "Menambahkan pengguna baru",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nama\": \"Dina Putri\",\n  \"email\": \"dina@example.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Pengguna berhasil ditambahkan\",\n  \"data\": {\n    \"id_pengguna\": 10,\n    \"nama\": \"Nafia Yunu\",\n    \"email\": \"nafia@example.com\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Ubah Seluruh Pengguna",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pengguna/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pengguna",
+                "1"
+              ]
+            },
+            "description": "Mengganti seluruh data pengguna (semua field wajib dikirim)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nama\": \"Dina Putri\",\n  \"email\": \"dina@example.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/pengguna/1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pengguna",
+                    "1"
+                  ]
+                },
+                "description": "Mengganti seluruh data pengguna (semua field wajib dikirim)",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nama\": \"Dina Putri\",\n  \"email\": \"dina@example.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Pengguna berhasil diperbarui\",\n  \"data\": {\n    \"id_pengguna\": 1,\n    \"nama\": \"Dina Putri\",\n    \"email\": \"dina@example.com\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Ubah Sebagian Pengguna",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pengguna/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pengguna",
+                "1"
+              ]
+            },
+            "description": "Mengubah sebagian field pengguna",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nama\": \"Dina Putri Aulia\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/pengguna/1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pengguna",
+                    "1"
+                  ]
+                },
+                "description": "Mengubah sebagian field pengguna",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nama\": \"Dina Putri Aulia\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Pengguna berhasil diperbarui\",\n  \"data\": {\n    \"id_pengguna\": 1,\n    \"nama\": \"Dina Putri Aulia\",\n    \"email\": \"nafia@example.com\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Hapus Pengguna",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/pengguna/10",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pengguna",
+                "10"
+              ]
+            },
+            "description": "Menghapus pengguna berdasarkan id"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/pengguna/10",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pengguna",
+                    "10"
+                  ]
+                },
+                "description": "Menghapus pengguna berdasarkan id"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Pengguna berhasil dihapus\",\n  \"data\": {\n    \"id_pengguna\": 10,\n    \"nama\": \"Nafia Yunu\",\n    \"email\": \"nafia@example.com\"\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kategori",
+      "item": [
+        {
+          "name": "Daftar Kategori",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/kategori",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "kategori"
+              ]
+            },
+            "description": "Mengambil semua data kategori"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/kategori",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "kategori"
+                  ]
+                },
+                "description": "Mengambil semua data kategori"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Daftar kategori berhasil diambil\",\n  \"total\": 1,\n  \"data\": [\n    {\n      \"id_kategori\": 1,\n      \"nama_kategori\": \"Pemrograman\"\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Detail Kategori",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/kategori/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "kategori",
+                "1"
+              ]
+            },
+            "description": "Mengambil satu kategori berdasarkan id"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/kategori/1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "kategori",
+                    "1"
+                  ]
+                },
+                "description": "Mengambil satu kategori berdasarkan id"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Kategori berhasil diambil\",\n  \"data\": {\n    \"id_kategori\": 1,\n    \"nama_kategori\": \"Pemrograman\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Tambah Kategori",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/kategori",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "kategori"
+              ]
+            },
+            "description": "Menambahkan kategori baru",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nama_kategori\": \"Sains\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 201', () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 201",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/kategori",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "kategori"
+                  ]
+                },
+                "description": "Menambahkan kategori baru",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nama_kategori\": \"Sains\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Kategori berhasil ditambahkan\",\n  \"data\": {\n    \"id_kategori\": 10,\n    \"nama_kategori\": \"Pemrograman\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Ubah Seluruh Kategori",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/kategori/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "kategori",
+                "1"
+              ]
+            },
+            "description": "Mengganti seluruh data kategori (semua field wajib dikirim)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nama_kategori\": \"Sains\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/kategori/1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "kategori",
+                    "1"
+                  ]
+                },
+                "description": "Mengganti seluruh data kategori (semua field wajib dikirim)",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nama_kategori\": \"Sains\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Kategori berhasil diperbarui\",\n  \"data\": {\n    \"id_kategori\": 1,\n    \"nama_kategori\": \"Sains\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Ubah Sebagian Kategori",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/kategori/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "kategori",
+                "1"
+              ]
+            },
+            "description": "Mengubah sebagian field kategori",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nama_kategori\": \"Sains Dasar\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/kategori/1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "kategori",
+                    "1"
+                  ]
+                },
+                "description": "Mengubah sebagian field kategori",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nama_kategori\": \"Sains Dasar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Kategori berhasil diperbarui\",\n  \"data\": {\n    \"id_kategori\": 1,\n    \"nama_kategori\": \"Sains Dasar\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Hapus Kategori",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/kategori/10",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "kategori",
+                "10"
+              ]
+            },
+            "description": "Menghapus kategori berdasarkan id"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/kategori/10",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "kategori",
+                    "10"
+                  ]
+                },
+                "description": "Menghapus kategori berdasarkan id"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Kategori berhasil dihapus\",\n  \"data\": {\n    \"id_kategori\": 10,\n    \"nama_kategori\": \"Pemrograman\"\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Materi",
+      "item": [
+        {
+          "name": "Daftar Materi",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/materi?id_kategori=1&id_pengguna=1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "materi"
+              ],
+              "query": [
+                {
+                  "key": "id_kategori",
+                  "value": "1"
+                },
+                {
+                  "key": "id_pengguna",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Mengambil semua data materi (opsional filter query: ?id_kategori=1&id_pengguna=1)"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/materi?id_kategori=1&id_pengguna=1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "materi"
+                  ],
+                  "query": [
+                    {
+                      "key": "id_kategori",
+                      "value": "1"
+                    },
+                    {
+                      "key": "id_pengguna",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "description": "Mengambil semua data materi (opsional filter query: ?id_kategori=1&id_pengguna=1)"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Daftar materi berhasil diambil\",\n  \"total\": 1,\n  \"data\": [\n    {\n      \"id_materi\": 1,\n      \"judul\": \"Dasar Python\",\n      \"isi\": \"Variabel, tipe data, percabangan, dan perulangan.\",\n      \"id_kategori\": 1,\n      \"id_pengguna\": 1,\n      \"nama_kategori\": \"Pemrograman\",\n      \"nama_pengguna\": \"Nafia Yunu\"\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Detail Materi",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/materi/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "materi",
+                "1"
+              ]
+            },
+            "description": "Mengambil satu materi berdasarkan id"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/materi/1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "materi",
+                    "1"
+                  ]
+                },
+                "description": "Mengambil satu materi berdasarkan id"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Materi berhasil diambil\",\n  \"data\": {\n    \"id_materi\": 1,\n    \"judul\": \"Dasar Python\",\n    \"isi\": \"Variabel, tipe data, percabangan, dan perulangan.\",\n    \"id_kategori\": 1,\n    \"id_pengguna\": 1,\n    \"nama_kategori\": \"Pemrograman\",\n    \"nama_pengguna\": \"Nafia Yunu\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Tambah Materi",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/materi",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "materi"
+              ]
+            },
+            "description": "Menambahkan materi baru",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"judul\": \"Pengenalan HTML\",\n  \"isi\": \"Struktur dasar halaman web.\",\n  \"id_kategori\": 1,\n  \"id_pengguna\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 201', () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 201",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/materi",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "materi"
+                  ]
+                },
+                "description": "Menambahkan materi baru",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"judul\": \"Pengenalan HTML\",\n  \"isi\": \"Struktur dasar halaman web.\",\n  \"id_kategori\": 1,\n  \"id_pengguna\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Materi berhasil ditambahkan\",\n  \"data\": {\n    \"id_materi\": 10,\n    \"judul\": \"Dasar Python\",\n    \"isi\": \"Variabel, tipe data, percabangan, dan perulangan.\",\n    \"id_kategori\": 1,\n    \"id_pengguna\": 1,\n    \"nama_kategori\": \"Pemrograman\",\n    \"nama_pengguna\": \"Nafia Yunu\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Ubah Seluruh Materi",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/materi/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "materi",
+                "1"
+              ]
+            },
+            "description": "Mengganti seluruh data materi (semua field wajib dikirim)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"judul\": \"Pengenalan HTML\",\n  \"isi\": \"Struktur dasar halaman web.\",\n  \"id_kategori\": 1,\n  \"id_pengguna\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/materi/1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "materi",
+                    "1"
+                  ]
+                },
+                "description": "Mengganti seluruh data materi (semua field wajib dikirim)",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"judul\": \"Pengenalan HTML\",\n  \"isi\": \"Struktur dasar halaman web.\",\n  \"id_kategori\": 1,\n  \"id_pengguna\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Materi berhasil diperbarui\",\n  \"data\": {\n    \"id_materi\": 1,\n    \"judul\": \"Pengenalan HTML\",\n    \"isi\": \"Struktur dasar halaman web.\",\n    \"id_kategori\": 1,\n    \"id_pengguna\": 1,\n    \"nama_kategori\": \"Pemrograman\",\n    \"nama_pengguna\": \"Nafia Yunu\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Ubah Sebagian Materi",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/materi/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "materi",
+                "1"
+              ]
+            },
+            "description": "Mengubah sebagian field materi",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"judul\": \"Pengenalan HTML & CSS\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/materi/1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "materi",
+                    "1"
+                  ]
+                },
+                "description": "Mengubah sebagian field materi",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"judul\": \"Pengenalan HTML & CSS\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Materi berhasil diperbarui\",\n  \"data\": {\n    \"id_materi\": 1,\n    \"judul\": \"Pengenalan HTML & CSS\",\n    \"isi\": \"Variabel, tipe data, percabangan, dan perulangan.\",\n    \"id_kategori\": 1,\n    \"id_pengguna\": 1,\n    \"nama_kategori\": \"Pemrograman\",\n    \"nama_pengguna\": \"Nafia Yunu\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Hapus Materi",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/materi/10",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "materi",
+                "10"
+              ]
+            },
+            "description": "Menghapus materi berdasarkan id"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/materi/10",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "materi",
+                    "10"
+                  ]
+                },
+                "description": "Menghapus materi berdasarkan id"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Materi berhasil dihapus\",\n  \"data\": {\n    \"id_materi\": 10,\n    \"judul\": \"Dasar Python\",\n    \"isi\": \"Variabel, tipe data, percabangan, dan perulangan.\",\n    \"id_kategori\": 1,\n    \"id_pengguna\": 1,\n    \"nama_kategori\": \"Pemrograman\",\n    \"nama_pengguna\": \"Nafia Yunu\"\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bookmark",
+      "item": [
+        {
+          "name": "Daftar Bookmark",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/bookmark?id_pengguna=1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bookmark"
+              ],
+              "query": [
+                {
+                  "key": "id_pengguna",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Mengambil semua data bookmark (opsional filter query: ?id_pengguna=1)"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/bookmark?id_pengguna=1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "bookmark"
+                  ],
+                  "query": [
+                    {
+                      "key": "id_pengguna",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "description": "Mengambil semua data bookmark (opsional filter query: ?id_pengguna=1)"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Daftar bookmark berhasil diambil\",\n  \"total\": 1,\n  \"data\": [\n    {\n      \"id_bookmark\": 1,\n      \"id_pengguna\": 1,\n      \"id_materi\": 2,\n      \"judul\": \"Pengenalan SQL\",\n      \"nama_pengguna\": \"Nafia Yunu\"\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Detail Bookmark",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/bookmark/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bookmark",
+                "1"
+              ]
+            },
+            "description": "Mengambil satu bookmark berdasarkan id"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/bookmark/1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "bookmark",
+                    "1"
+                  ]
+                },
+                "description": "Mengambil satu bookmark berdasarkan id"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Bookmark berhasil diambil\",\n  \"data\": {\n    \"id_bookmark\": 1,\n    \"id_pengguna\": 1,\n    \"id_materi\": 2,\n    \"judul\": \"Pengenalan SQL\",\n    \"nama_pengguna\": \"Nafia Yunu\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Tambah Bookmark",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/bookmark",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bookmark"
+              ]
+            },
+            "description": "Menambahkan bookmark baru",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_pengguna\": 1,\n  \"id_materi\": 3\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 201', () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 201",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/bookmark",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "bookmark"
+                  ]
+                },
+                "description": "Menambahkan bookmark baru",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id_pengguna\": 1,\n  \"id_materi\": 3\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Bookmark berhasil ditambahkan\",\n  \"data\": {\n    \"id_bookmark\": 10,\n    \"id_pengguna\": 1,\n    \"id_materi\": 2,\n    \"judul\": \"Pengenalan SQL\",\n    \"nama_pengguna\": \"Nafia Yunu\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Hapus Bookmark",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/bookmark/10",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bookmark",
+                "10"
+              ]
+            },
+            "description": "Menghapus bookmark berdasarkan id"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/bookmark/10",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "bookmark",
+                    "10"
+                  ]
+                },
+                "description": "Menghapus bookmark berdasarkan id"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Bookmark berhasil dihapus\",\n  \"data\": {\n    \"id_bookmark\": 10,\n    \"id_pengguna\": 1,\n    \"id_materi\": 2,\n    \"judul\": \"Pengenalan SQL\",\n    \"nama_pengguna\": \"Nafia Yunu\"\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Riwayat",
+      "item": [
+        {
+          "name": "Daftar Riwayat",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/riwayat?id_pengguna=1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "riwayat"
+              ],
+              "query": [
+                {
+                  "key": "id_pengguna",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Mengambil semua data riwayat (opsional filter query: ?id_pengguna=1)"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/riwayat?id_pengguna=1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "riwayat"
+                  ],
+                  "query": [
+                    {
+                      "key": "id_pengguna",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "description": "Mengambil semua data riwayat (opsional filter query: ?id_pengguna=1)"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Daftar riwayat berhasil diambil\",\n  \"total\": 1,\n  \"data\": [\n    {\n      \"id_riwayat\": 1,\n      \"id_pengguna\": 1,\n      \"id_materi\": 1,\n      \"tanggal_dibaca\": \"2026-10-23T09:30:00\",\n      \"judul\": \"Dasar Python\",\n      \"nama_pengguna\": \"Nafia Yunu\"\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Detail Riwayat",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/riwayat/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "riwayat",
+                "1"
+              ]
+            },
+            "description": "Mengambil satu riwayat berdasarkan id"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/riwayat/1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "riwayat",
+                    "1"
+                  ]
+                },
+                "description": "Mengambil satu riwayat berdasarkan id"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Riwayat berhasil diambil\",\n  \"data\": {\n    \"id_riwayat\": 1,\n    \"id_pengguna\": 1,\n    \"id_materi\": 1,\n    \"tanggal_dibaca\": \"2026-10-23T09:30:00\",\n    \"judul\": \"Dasar Python\",\n    \"nama_pengguna\": \"Nafia Yunu\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Tambah Riwayat",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/riwayat",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "riwayat"
+              ]
+            },
+            "description": "Menambahkan riwayat baru",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_pengguna\": 1,\n  \"id_materi\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 201', () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 201",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/riwayat",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "riwayat"
+                  ]
+                },
+                "description": "Menambahkan riwayat baru",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id_pengguna\": 1,\n  \"id_materi\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Riwayat berhasil ditambahkan\",\n  \"data\": {\n    \"id_riwayat\": 10,\n    \"id_pengguna\": 1,\n    \"id_materi\": 1,\n    \"tanggal_dibaca\": \"2026-10-23T09:30:00\",\n    \"judul\": \"Dasar Python\",\n    \"nama_pengguna\": \"Nafia Yunu\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Hapus Riwayat",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/riwayat/10",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "riwayat",
+                "10"
+              ]
+            },
+            "description": "Menghapus riwayat berdasarkan id"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "Contoh 200",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/riwayat/10",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "riwayat",
+                    "10"
+                  ]
+                },
+                "description": "Menghapus riwayat berdasarkan id"
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Riwayat berhasil dihapus\",\n  \"data\": {\n    \"id_riwayat\": 10,\n    \"id_pengguna\": 1,\n    \"id_materi\": 1,\n    \"tanggal_dibaca\": \"2026-10-23T09:30:00\",\n    \"judul\": \"Dasar Python\",\n    \"nama_pengguna\": \"Nafia Yunu\"\n  }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
