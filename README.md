@@ -814,8 +814,8 @@ seed.sql         data contoh
 - [x] Postman Collection dalam `docs/TemanBelajar.postman_collection.json`
 - [x] Dokumentasi endpoint dalam `docs/endpoints.md`
 - [x] Konfigurasi Vercel
-- [ ] Isi `DATABASE_URL` di environment Vercel
-- [ ] Pastikan deployment Vercel aktif
-- [ ] Test menggunakan URL Vercel
-- [ ] Screenshot hasil testing untuk bukti pengumpulan
-- [ ] Upload repository ke GitHub
+- [x] Isi `DATABASE_URL` di environment Vercel
+- [x] Pastikan deployment Vercel aktif
+- [x] Test menggunakan URL Vercel
+- [x] Screenshot hasil testing untuk bukti pengumpulan
+- [x] Upload repository ke GitHub
